@@ -62,11 +62,10 @@ var Gmaps = (0, _createReactClass2['default'])({
     _utilsGoogleMaps2['default'].removeCallback(this.state.callbackIndex);
     this.removeListeners();
   },
-
-  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-    if (this.map && !(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
-      this.map.setOptions(_extends({}, nextProps, {
-        center: new google.maps.LatLng(nextProps.lat, nextProps.lng)
+  componentDidUpdate: function componentDidUpdate(prevProps) {
+    if (this.map && !(0, _utilsCompareProps2['default'])(this.props, prevProps)) {
+      this.map.setOptions(_extends({}, this.props, {
+        center: new google.maps.LatLng(this.props.lat, this.props.lng)
       }));
     }
   },

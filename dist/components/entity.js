@@ -39,8 +39,8 @@ exports['default'] = function (name, latLngProp, events) {
       this.addListeners(this.entity, events);
     },
 
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-      if (!(0, _utilsCompareProps2['default'])(this.props, nextProps)) {
+    componentDidUpdate: function componentDidUpdate(prevProps) {
+      if (!(0, _utilsCompareProps2['default'])(this.props, prevProps)) {
         var options = this.getOptions(nextProps);
         this.entity.setOptions(options);
       }

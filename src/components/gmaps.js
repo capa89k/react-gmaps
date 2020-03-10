@@ -29,12 +29,11 @@ const Gmaps = createReactClass({
     GoogleMaps.removeCallback(this.state.callbackIndex);
     this.removeListeners();
   },
-
-  componentWillReceiveProps(nextProps) {
-    if (this.map && !compareProps(this.props, nextProps)) {
+  componentDidUpdate(prevProps) {
+    if (this.map && !compareProps(this.props, prevProps)) {
       this.map.setOptions({
-        ...nextProps,
-        center: new google.maps.LatLng(nextProps.lat, nextProps.lng)
+        ...this.props,
+        center: new google.maps.LatLng(this.props.lat, this.props.lng)
       });
     }
   },

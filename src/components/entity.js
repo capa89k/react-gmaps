@@ -17,10 +17,10 @@ export default (name, latLngProp, events) => {
     },
 
     componentDidUpdate(prevProps){
-        if(!compareProps(this.props, prevProps)){
-	    const options = this.getOptions(nextProps);
-            this.entity.setOptions(options);
-	}
+      if(!compareProps(this.props, prevProps)){
+        const options = this.getOptions(this.props);
+        this.entity.setOptions(options);
+      }
     },
 
     componentWillUnmount() {

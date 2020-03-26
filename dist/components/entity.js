@@ -41,7 +41,7 @@ exports['default'] = function (name, latLngProp, events) {
 
     componentDidUpdate: function componentDidUpdate(prevProps) {
       if (!(0, _utilsCompareProps2['default'])(this.props, prevProps)) {
-        var options = this.getOptions(nextProps);
+        var options = this.getOptions(this.props);
         this.entity.setOptions(options);
       }
     },
